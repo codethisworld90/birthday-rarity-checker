@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Rare is Your Birthday?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff758c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #ff5e78;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How Rare is Your Birthday?</h1>
+        <p>Enter your birth details to find out!</p>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+        <br>
+        <label for="birthtime">Birth Time:</label>
+        <input type="time" id="birthtime">
+        <br>
+        <button onclick="checkBirthday()">Check</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkBirthday() {
+            const funFacts = [
+                "People born in August are more likely to be left-handed!",
+                "October is the most common birth month!",
+                "Your birthstone holds hidden meanings!",
+                "Those born at night tend to be more creative!",
+                "Babies born on holidays have unique personalities!"
+            ];
+            
+            const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+            const rarity = (Math.random() * 5).toFixed(2);
+            
+            document.getElementById('result').innerHTML = `
+                <p>Your birthday is rarer than <b>${rarity}%</b> of other birthdays!</p>
+                <p>Fun Fact: ${randomFact}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
